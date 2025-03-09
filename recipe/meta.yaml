@@ -1,19 +1,19 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.10" %}
 {% set name = "hicsv-python" %}
-{% set version = "1.0.1" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/hicsv-python-{{ version }}.tar.gz
-  sha256: da63fcfc10e5255d2cb6860fe3f71dc68eb39c70a1135ae97b0a05efdd5a79af
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 647abc9f93886ca5a61fafb8a843f3f39f27d2aed61969a89cc01368cd54784e
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
